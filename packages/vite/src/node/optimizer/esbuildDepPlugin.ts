@@ -276,7 +276,7 @@ module.exports = Object.create(new Proxy({}, {
           } else {
             const [, peerDep, parentDep] = path.split(':')
             return {
-              contents: `throw new Error(\`Could not resolve "${peerDep}" imported by "${parentDep}". Is it installed?\`)`,
+              contents: `console.warn(\`Could not resolve "${peerDep}" imported by "${parentDep}". Is it installed?\`); module.exports = {};`,
             }
           }
         },
