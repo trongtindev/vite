@@ -463,9 +463,7 @@ export default new Proxy({}, {
           return `export default {}`
         } else {
           const [, peerDep, parentDep] = id.split(':')
-          return {
-            contents: `console.warn(\`Could not resolve "${peerDep}" imported by "${parentDep}". Is it installed?\`); module.exports = {};`,
-          }
+          return `console.warn(\`Could not resolve "${peerDep}" imported by "${parentDep}". Is it installed?\`); module.exports = {};`
         }
       }
     },
